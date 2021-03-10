@@ -1,0 +1,14 @@
+<h1 class='text-center'>Attraction</h1>
+<div class=''>
+  <h3><strong>Name: </strong><%= @attraction.name %></h3>
+  <h3><strong>Total Number of Users: </strong><%= @attraction.total_users %></h3>
+  <h3><strong>Height Requirement: </strong><%= height_in_inches(@attraction) %></h3>
+  <h3><strong>Nausea Rating: </strong><%= @attraction.nausea_rating %></h3>
+  <h3><strong>Happiness Rating: </strong><%= @attraction.happiness_rating %></h3>
+</div>
+
+<% if current_user.admin %>
+  <%= link_to 'Edit Attraction', edit_attraction_path, class: 'btn btn-warning'%>
+<% else %>
+  <%= render partial: 'rides/form', local: {ride: @ride} %>
+<% end %>

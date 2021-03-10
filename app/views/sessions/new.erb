@@ -1,0 +1,11 @@
+<h1 class="text-center">Log In to Enter Rails Amusement Park</h1>
+
+<%= form_for(@user, url: submit_signin_path) do |f| %>
+  <%= f.label :name, 'You name:' %>
+  <%= f.collection_select :name, @users, :name, :name %><br/><br/>
+
+  <%= f.label :password, 'password:' %>
+  <%= f.password_field :password %><br/><br/>
+
+  <%= f.submit 'Sign In', class: 'btn btn-primary' %>
+<% end %>

@@ -1,5 +1,0 @@
-class StaticController < ApplicationController
-
-
-
-end

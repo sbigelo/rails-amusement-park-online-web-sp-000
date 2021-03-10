@@ -1,0 +1,40 @@
+<h1>Attractions List</h1>
+
+<% if current_user.admin %>
+  <%= link_to "New Attraction", new_attraction_path, class: 'btn btn-warning' %>
+<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <td>
+        <strong>Name</strong>
+      </td>
+      <td>
+        <strong>Tickets</strong>
+      </td>
+      <td>
+        <strong>Details</strong>
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @attractions.each do |attraction| %>
+      <tr>
+        <td>
+          <%= attraction.name %>
+        </td>
+        <td>
+          <%= attraction.tickets %>
+        </td>
+        <td>
+          <% if current_user.admin %>
+            <%= link_to "Show #{attraction.name}", attraction_path(attraction) %>
+          <% else %>
+            <%= link_to "Go on #{attraction.name}", attraction_path(attraction) %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
