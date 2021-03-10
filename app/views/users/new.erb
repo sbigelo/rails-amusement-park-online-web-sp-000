@@ -1,61 +1,25 @@
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:
-      </h2>
+<h1 class="text-center">Sign Up to Enter Rails Amusement Park</h1>
+<%= form_for(@user) do |f| %>
+  <%= f.label :name %><br/>
+  <%= f.text_field :name %><br/><br/>
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.label :height, "Height (in inches)"%><br/>
+  <%= f.number_field :height %><br/><br/>
 
-  <div class="form-group">
-    <%= f.label :name %>
-    <br>
-    <%= f.text_field :name, class: "form-control" %>
-  </div>
+  <%= f.label :happiness, "How happy are you? (1-5 scale)" %><br/>
+  <%= f.number_field :happiness %><br/><br/>
 
-  <div class="form-group">
-    <%= f.label :height, "Height (in inches)" %>
-    <br>
-    <%= f.number_field :height, class: "form-control" %>
-  </div>
+  <%= f.label :nausea, "How nauseous are you? (1-5 scale)" %><br/>
+  <%= f.number_field :nausea %><br/><br/>
 
-  <div class="form-group">
-    <%= f.label :happiness, "How happy are you? (1-5 scale)" %>
-    <br>
-    <%= f.number_field :happiness, class: "form-control" %>
-  </div>
+  <%= f.label :tickets, "How many dollars in your pocket?" %><br/>
+  <%= f.number_field :tickets %><br/><br/>
 
-  <div class="form-group">
-    <%= f.label :nausea, "How nauseous are you? (1-5 scale)" %>
-    <br>
-    <%= f.number_field :nausea, class: "form-control" %>
-  </div>
+  <%= f.label :admin, 'Check box if you are a theme park owner' %>
+  <%= f.check_box :admin, {class: 'user_admin'}, true, false %><br/><br/>
 
-  <div class="form-group">
-    <%= f.label :tickets, "How many dollars are in your pocket?" %>
-    <br>
-    <%= f.number_field :tickets, class: "form-control" %>
-  </div>
+  <%= f.label :password %><br/>
+  <%= f.password_field :password %><br/><br/>
 
-  <div class="form-group">
-    <%= f.label :admin, "Check box if you are a theme park owner" %>
-    <%= f.check_box :admin, class: "form-check-input" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password %>
-    <br>
-    <%= f.password_field :password, class: "form-control" %>
-
-  <div class="actions">
-    <br/>
-    <%= f.submit class: "btn btn-primary" %>
-  </div>
-
-<% end %> 
+  <%= f.submit 'Create User', class: "btn btn-primary" %>
+<% end %>
